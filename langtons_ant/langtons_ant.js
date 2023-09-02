@@ -1,8 +1,8 @@
 //langton's ant
 const INTERVAL_DELAY = 1;
-const BOARD_W = 100;
-const BOARD_H = 100;
-const SCALE_MULT = 10;
+const BOARD_W = 200;
+const BOARD_H = 200;
+const SCALE_MULT = 2;
 let board = [];
 
 function mod(n, m) {
@@ -44,7 +44,7 @@ class Ant {
 }
 
 let ant = new Ant(Math.floor(BOARD_W/2), Math.floor(BOARD_H/2));
-
+//let ant2 = new Ant(Math.floor(BOARD_W/4), Math.floor(BOARD_H/4));
 function start() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
@@ -68,10 +68,22 @@ function update(ctx) {
 
     ant.move();
     //console.log(x, y, board[x][y]);
-    draw(ctx, x, y);
+    draw(ctx, x, y, ant);
+
+    /*
+    let x2 = ant2.getX();
+    let y2 = ant2.getY();
+    //console.log(x, y, board[x][y]);
+    ant2.rotate(board[x2][y2]);
+    board[x2][y2] ^= 1;
+
+    ant2.move();
+    //console.log(x, y, board[x][y]);
+    draw(ctx, x2, y2, ant2);
+    */
 }
 
-function draw(ctx, x, y) {
+function draw(ctx, x, y, ant) {
     //console.log("drawing");
     if(board[x][y]) {
         //black cell
