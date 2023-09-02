@@ -2,9 +2,9 @@
 //i know the code is quite messy
 //i might refactor later
 const INTERVAL_DELAY = 50; //ms
-const BOARD_W = 100;
-const BOARD_H = 100;
-const SCALE_MULT = 5;
+const BOARD_W = 200;
+const BOARD_H = 200;
+const SCALE_MULT = 3;
 
 let boards = [];
 let active_board = 0;
@@ -96,10 +96,10 @@ function draw(boards, ctx) {
     for(let x = 0; x < BOARD_W; x++) {
         for(let y = 0; y < BOARD_H; y++) {
             if(boards[x][y]) {
-                ctx.fillStyle = "rgb(0, 0, 0)"
+                ctx.fillStyle = "rgb(0, 0, 0)";
                 ctx.fillRect(x * SCALE_MULT, y * SCALE_MULT, SCALE_MULT, SCALE_MULT);
             } else {
-                ctx.fillStyle = "rgb(255, 255, 255)"
+                ctx.fillStyle = "rgb(255, 255, 255)";
                 ctx.fillRect(x * SCALE_MULT, y * SCALE_MULT, SCALE_MULT, SCALE_MULT);
             }
         }
